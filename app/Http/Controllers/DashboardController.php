@@ -797,9 +797,9 @@ class DashboardController extends Controller
             ? implode(', ', $topTfidfX->map(fn($t) => "{$t->term} ({$t->total_skor})")->toArray())
             : 'Tidak ada kata kunci dominan';
 
-        $hargaStr = $dataHarga ? 'Rp ' . number_format($dataHarga->harga, 0, ',', '.') : 'Tidak tercatat';
-        $selisihStr = $dataHarga ? (($dataHarga->selisih > 0 ? '+' : '') . 'Rp ' . number_format($dataHarga->selisih, 0, ',', '.')) : '0';
-        $statusStr = $dataHarga ? $dataHarga->status_lonjakan : 'NORMAL';
+        $hargaStr = $dataHarga ? 'Rp ' . number_format($dataHarga->harga, 0, ',', '.') : 'Tidak Tercatat';
+        $selisihStr = $dataHarga ? (($dataHarga->selisih > 0 ? '+' : '') . 'Rp ' . number_format($dataHarga->selisih, 0, ',', '.')) : 'Tidak Tercatat';
+        $statusStr = $dataHarga ? $dataHarga->status_lonjakan : 'Tidak Tercatat';
         $wilayahStr = ($kabupaten !== 'ALL') ? $kabupaten : ($dataHarga->kabupaten ?? 'Jawa Timur');
 
         $prompt = "Langsung berikan analisis terstruktur dalam Bahasa Indonesia sesuai format tanpa pengantar basa-basi.
